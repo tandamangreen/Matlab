@@ -18,8 +18,11 @@ C = [0 1 0 0; 0 0 0 1];
 theta = 0;
 thetadot = 0;
 zdot = 0;
-%he
 F = (z*m1*g/len + m2*g/2);
 Ae = subs(A)
 Be = subs(B)
-H = C*inv(s.*I - Ae)*Be
+%Ignore m1*g^2, goes to zero
+H = C*inv(s.*I - Ae)*Be;
+simplify(Ae)
+simplify(A)
+simplify(Be)
